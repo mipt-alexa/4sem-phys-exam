@@ -23,7 +23,7 @@ def remove_noise(level, *array):
 
 image_id = input()
 
-im = Image.open('image' + str(image_id) + '.jpg')
+im = Image.open('sourse_images/image' + str(image_id) + '.jpg')
 pix = im.load()
 
 W = im.size[0]
@@ -83,4 +83,5 @@ c1.plot(Lambda, B_noise, color="blue")
 c2.plot(Lambda, Int_1_noise)
 
 plt.legend()
+
 plt.show()
