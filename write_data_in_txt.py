@@ -59,9 +59,7 @@ for image_id in range(3):
     G_noise = remove_noise(noise_lvl, *G_mov_av)
     B_noise = remove_noise(noise_lvl, *B_mov_av)
 
-    # сохраним данные в файл
-
     file2 = open('data/' + str(image_id) + '.txt', 'w')
 
-    for i in Int_1_noise:
-        file2.write(str(i) + '\n')
+    for i in range(len(Int_1_noise)):
+        file2.write(str(Int_1_noise[i]) + " " + str(R_noise[i]) + " " + str(G_noise[i]) + ' ' + str(B_noise[i]) + '\n')
