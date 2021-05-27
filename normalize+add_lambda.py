@@ -22,4 +22,13 @@ for i in range(3):
     max_index = I.index(max_value)
     print(max_index)
 
-    print(find_half_width(max_value, *I))
+    [i1, i2] = find_half_width(max_value, *I)
+    nm_per_pixel = 2 * DELTA_LAMBDA / (i2 - i1)
+
+    file2 = open('normalized_data/' + str(i) + '.txt', 'w')
+
+    _lambda = 0
+
+    for k in range(len(I)):
+        _lambda = (MAX_LAMBDA - DELTA_LAMBDA) + (k - i1) * nm_per_pixel
+        file2.write(str(_lambda) + " " + str(I[k] / max_value) + " " + str(R[k]) + " " + str(G[k]) + ' ' + str(B[k]) + '\n')
