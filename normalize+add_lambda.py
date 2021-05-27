@@ -1,5 +1,5 @@
-MAX_LAMBDA = 845
-DELTA_LAMBDA = 25
+MAX_LAMBDA = 842
+DELTA_LAMBDA = 29
 
 
 def find_half_width(max_val, *arr):

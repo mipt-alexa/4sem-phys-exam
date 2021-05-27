@@ -9,6 +9,13 @@ for i in range(3):
     plt.plot(L, I)
 
 
+f = open("ocean_data.txt")
+X, Y = zip(*[map(float, line.strip().split()) for line in f.readlines()])
+
+plt.plot(X, Y)
+
+plt.show()
+
 # plt.show()
-plt.savefig("together")
+# plt.savefig("together")
 

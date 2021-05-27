@@ -6,5 +6,5 @@ X, Y = zip(*[map(float, line.strip().split()) for line in f.readlines()])
 
 plt.plot(X, Y)
 
-plt.show()
-# plt.savefig("ocean")
+# plt.show()
+plt.savefig("ocean")
