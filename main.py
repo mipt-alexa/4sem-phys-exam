@@ -61,8 +61,6 @@ R_noise = remove_noise(noise_lvl, *R_mov_av)
 G_noise = remove_noise(noise_lvl, *G_mov_av)
 B_noise = remove_noise(noise_lvl, *B_mov_av)
 
-# print(Data)
-# print(Int_1)
 
 f, ((ax1, b1, c1), (ax2, b2, c2)) = plt.subplots(2, 3)
 
