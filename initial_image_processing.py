@@ -21,7 +21,7 @@ def remove_noise(level, *array):
     return return_arr
 
 
-for image_id in range(10):
+for image_id in range(9):
 
     im = Image.open('sourse_images/image' + str(image_id) + '.jpg')
     pix = im.load()
@@ -53,7 +53,7 @@ for image_id in range(10):
     G_mov_av = moving_average(num_average, *G)
     B_mov_av = moving_average(num_average, *B)
 
-    noise_lvl = int( sum(Int_1_mov_av[ int(0.8 * H):H-1]) / 0.2 / H )
+    noise_lvl = int( sum(Int_1_mov_av[0: 0.2 * H]) / 0.2 / H )
     Int_1_noise = remove_noise(noise_lvl, *Int_1_mov_av)
     R_noise = remove_noise(noise_lvl, *R_mov_av)
     G_noise = remove_noise(noise_lvl, *G_mov_av)

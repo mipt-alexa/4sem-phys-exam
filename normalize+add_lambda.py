@@ -13,7 +13,7 @@ def find_half_width(max_val, *arr):
     return [a, b]
 
 
-for i in range(10):
+for i in range(9):
     f = open("data/" + str(i) + ".txt")
 
     I, R, G, B = zip(*[map(float, line.strip().split()) for line in f.readlines()])
@@ -30,7 +30,7 @@ for i in range(10):
     _lambda = 0
 
     for k in range(len(I)):
-        _lambda = 864 + (k - i2) * nm_per_pixel
-        # file2.write(str(_lambda) + " " + str(I[k] / max_value) + " " + str(R[k]/max(R)) + " " + str(G[k]/max(G)) +
-        # ' ' + str(B[k]/max(B)) + '\n')
-        file2.write(str(_lambda) + " " + str(I[k]) + " " + str(R[k]) + " " + str(G[k]) + " " + str(B[k]) + '\n')
+        _lambda = 870 + (k - i2) * nm_per_pixel
+        file2.write(str(_lambda) + " " + str(I[k] / max_value) + " " + str(R[k]/255) + " " + str(G[k]/255) +
+        ' ' + str(B[k]/255) + '\n')
+        # file2.write(str(_lambda) + " " + str(I[k]) + " " + str(R[k]) + " " + str(G[k]) + " " + str(B[k]) + '\n')

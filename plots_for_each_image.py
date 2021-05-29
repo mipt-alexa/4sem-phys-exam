@@ -21,7 +21,7 @@ def remove_noise(level, *array):
     return return_arr
 
 
-image_id = input()
+image_id = 6
 
 im = Image.open('sourse_images/image' + str(image_id) + '.jpg')
 pix = im.load()
@@ -46,21 +46,18 @@ for i in Data:
     # Int_1.append(0.2126 * i[0] + 0.7152 * i[1] + 0.0722 * i[2])
     Int_1.append(0.299 * i[0] + 0.587 * i[1] + 0.114 * i[2])
 
-
-num_average = 21
+num_average = int(0.05 * H)
 
 Int_1_mov_av = moving_average(num_average, *Int_1)
 R_mov_av = moving_average(num_average, *R)
 G_mov_av = moving_average(num_average, *G)
 B_mov_av = moving_average(num_average, *B)
 
-
-noise_lvl = 20
+noise_lvl = int(sum(Int_1_mov_av[0: int(0.2 * H)]) / 0.2 / H)
 Int_1_noise = remove_noise(noise_lvl, *Int_1_mov_av)
 R_noise = remove_noise(noise_lvl, *R_mov_av)
 G_noise = remove_noise(noise_lvl, *G_mov_av)
 B_noise = remove_noise(noise_lvl, *B_mov_av)
-
 
 f, ((ax1, b1, c1), (ax2, b2, c2)) = plt.subplots(2, 3)
 
@@ -80,6 +77,26 @@ c1.plot(Lambda, G_noise, color="green")
 c1.plot(Lambda, B_noise, color="blue")
 c2.plot(Lambda, Int_1_noise)
 
-plt.legend()
+ax2.set_xlabel("pixel coordinate")
+b2.set_xlabel("pixel coordinate")
+c2.set_xlabel("pixel coordinate")
+
+ax1.set_ylabel("RGB-levels")
+ax2.set_ylabel("Intensity")
+ax1.axes.get_xaxis().set_visible(False)
+b1.axes.get_xaxis().set_visible(False)
+c1.axes.get_xaxis().set_visible(False)
+
+b1.axes.get_yaxis().set_visible(False)
+c1.axes.get_yaxis().set_visible(False)
+b2.axes.get_yaxis().set_visible(False)
+c2.axes.get_yaxis().set_visible(False)
+
+plt.subplots_adjust(left=0.1,
+                    bottom=0.1,
+                    right=0.95,
+                    top=0.95,
+                    wspace=0.12,
+                    hspace=0.15)
 
 plt.show()

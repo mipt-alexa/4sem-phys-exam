@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 
-for i in range(10):
+for i in range(9):
     f = open("normalized_data/" + str(i) + ".txt")
 
     L, I, R, G, B = (zip(*[map(float, line.strip().split()) for line in f.readlines()]))
